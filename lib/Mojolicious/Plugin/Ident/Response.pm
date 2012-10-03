@@ -5,7 +5,7 @@ use warnings;
 use Mojo::Base -base;
 
 # ABSTRACT: Ident response object
-# VERSION
+our $VERSION = '0.2'; # VERSION
 
 
 has 'os';
@@ -58,7 +58,7 @@ Mojolicious::Plugin::Ident::Response - Ident response object
 
 =head1 VERSION
 
-version 0.1
+version 0.2
 
 =head1 DESCRIPTION
 

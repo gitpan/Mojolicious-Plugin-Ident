@@ -25,5 +25,6 @@ requires:
   warnings: 0
 resources:
   bugtracker: https://github.com/plicease/Mojolicious-Plugin-Ident/issues
+  homepage: http://search.cpan.org/dist/Mojolicious-Plugin-Ident/
   repository: git://github.com/plicease/Mojolicious-Plugin-Ident.git
-version: 0.1
+version: 0.2

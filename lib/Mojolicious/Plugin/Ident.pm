@@ -10,7 +10,7 @@ use Mojo::Exception;
 use Mojolicious::Plugin::Ident::Response;
 
 # ABSTRACT: Mojolicious plugin to interact with a remote ident service
-# VERSION
+our $VERSION = '0.2'; # VERSION
 
 
 sub register
@@ -67,7 +67,7 @@ Mojolicious::Plugin::Ident - Mojolicious plugin to interact with a remote ident 
 
 =head1 VERSION
 
-version 0.1
+version 0.2
 
 =head1 SYNOPSIS
 
