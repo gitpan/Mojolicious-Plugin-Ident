@@ -5,7 +5,7 @@ use warnings;
 use Mojo::Base -base;
 
 # ABSTRACT: Ident response object
-our $VERSION = '0.2'; # VERSION
+our $VERSION = '0.21'; # VERSION
 
 
 has 'os';
@@ -48,8 +48,8 @@ sub same_user
 
 1;
 
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -58,7 +58,7 @@ Mojolicious::Plugin::Ident::Response - Ident response object
 
 =head1 VERSION
 
-version 0.2
+version 0.21
 
 =head1 DESCRIPTION
 
@@ -102,4 +102,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

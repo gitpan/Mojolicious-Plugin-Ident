@@ -27,11 +27,9 @@ my %WriteMakefileArgs = (
     "Mojo::Base" => 0,
     "Mojo::Exception" => 0,
     "Net::Ident" => 0,
-    "Socket" => 0,
-    "strict" => 0,
-    "warnings" => 0
+    "Socket" => 0
   },
-  "VERSION" => "0.2",
+  "VERSION" => "0.21",
   "test" => {
     "TESTS" => "t/*.t"
   }

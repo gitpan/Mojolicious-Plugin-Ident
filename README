@@ -3,7 +3,7 @@ NAME
     remote ident service
 
 VERSION
-    version 0.2
+    version 0.21
 
 SYNOPSIS
      use Mojolicious::Lite;

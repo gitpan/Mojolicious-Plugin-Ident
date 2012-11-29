@@ -1,6 +1,8 @@
 Changes
+INSTALL
 LICENSE
 MANIFEST
+META.json
 META.yml
 Makefile.PL
 README
@@ -14,6 +16,7 @@ t/ident_same_user.t
 t/response.t
 t/timeout.t
 t/use.t
+xt/release/build_environment.t
 xt/release/changes.t
 xt/release/eol.t
 xt/release/fixme.t

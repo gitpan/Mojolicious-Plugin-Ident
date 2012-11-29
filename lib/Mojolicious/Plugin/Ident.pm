@@ -10,7 +10,7 @@ use Mojo::Exception;
 use Mojolicious::Plugin::Ident::Response;
 
 # ABSTRACT: Mojolicious plugin to interact with a remote ident service
-our $VERSION = '0.2'; # VERSION
+our $VERSION = '0.21'; # VERSION
 
 
 sub register
@@ -59,6 +59,7 @@ sub register
 1;
 
 __END__
+
 =pod
 
 =head1 NAME
@@ -67,7 +68,7 @@ Mojolicious::Plugin::Ident - Mojolicious plugin to interact with a remote ident 
 
 =head1 VERSION
 
-version 0.2
+version 0.21
 
 =head1 SYNOPSIS
 
@@ -190,4 +191,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

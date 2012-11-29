@@ -9,7 +9,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300023, CPAN::Meta::Converter version 2.120921'
+generated_by: 'Dist::Zilla version 4.300028, CPAN::Meta::Converter version 2.120921'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -21,10 +21,8 @@ requires:
   Net::Ident: 0
   Socket: 0
   perl: v5.10.0
-  strict: 0
-  warnings: 0
 resources:
   bugtracker: https://github.com/plicease/Mojolicious-Plugin-Ident/issues
   homepage: http://search.cpan.org/dist/Mojolicious-Plugin-Ident/
   repository: git://github.com/plicease/Mojolicious-Plugin-Ident.git
-version: 0.2
+version: 0.21
