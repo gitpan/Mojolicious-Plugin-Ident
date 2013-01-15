@@ -24,12 +24,12 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "Mojolicious::Plugin::Ident",
   "PREREQ_PM" => {
+    "AnyEvent" => 0,
+    "AnyEvent::Ident" => 0,
     "Mojo::Base" => 0,
-    "Mojo::Exception" => 0,
-    "Net::Ident" => 0,
-    "Socket" => 0
+    "Mojo::Exception" => 0
   },
-  "VERSION" => "0.21",
+  "VERSION" => "0.22",
   "test" => {
     "TESTS" => "t/*.t"
   }

@@ -8,11 +8,14 @@ Makefile.PL
 README
 dist.ini
 example/ident.pl
+example/ident_log.pl
 lib/Mojolicious/Plugin/Ident.pm
 lib/Mojolicious/Plugin/Ident/Response.pm
 t/basic.t
 t/exception.t
 t/ident_same_user.t
+t/ident_same_user_nb.t
+t/non_blocking.t
 t/response.t
 t/timeout.t
 t/use.t

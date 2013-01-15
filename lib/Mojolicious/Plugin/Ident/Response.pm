@@ -5,7 +5,7 @@ use warnings;
 use Mojo::Base -base;
 
 # ABSTRACT: Ident response object
-our $VERSION = '0.21'; # VERSION
+our $VERSION = '0.22'; # VERSION
 
 
 has 'os';
@@ -48,8 +48,8 @@ sub same_user
 
 1;
 
-__END__
 
+__END__
 =pod
 
 =head1 NAME
@@ -58,12 +58,17 @@ Mojolicious::Plugin::Ident::Response - Ident response object
 
 =head1 VERSION
 
-version 0.21
+version 0.22
 
 =head1 DESCRIPTION
 
 This class represents the responses as they come back
 from the remote ident server.
+
+NOTE: This class is only used for blocking requests.
+If you provide a callback, then you are probably 
+more interested in L<AnyEvent::Ident::Response>, which
+is similar, but does not have a C<same_user> method.
 
 =head1 ATTRIBUTES
 
@@ -102,3 +107,4 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
+

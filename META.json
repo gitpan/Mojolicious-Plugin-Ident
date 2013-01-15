@@ -13,6 +13,11 @@
       "version" : "2"
    },
    "name" : "Mojolicious-Plugin-Ident",
+   "no_index" : {
+      "directory" : [
+         "example"
+      ]
+   },
    "prereqs" : {
       "configure" : {
          "requires" : {
@@ -21,10 +26,10 @@
       },
       "runtime" : {
          "requires" : {
+            "AnyEvent" : "0",
+            "AnyEvent::Ident" : "0",
             "Mojo::Base" : "0",
             "Mojo::Exception" : "0",
-            "Net::Ident" : "0",
-            "Socket" : "0",
             "perl" : "v5.10.0"
          }
       },
@@ -48,6 +53,6 @@
          "web" : "https://github.com/plicease/Mojolicious-Plugin-Ident"
       }
    },
-   "version" : "0.21"
+   "version" : "0.22"
 }
 

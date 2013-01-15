@@ -27,8 +27,13 @@ plugin 'ident' => {
   }
 };
 
-under sub { shift->ident_same_user };
-get '/ident' => sub { shift->render_text('okay') };
+get '/ident' => sub { 
+  my $self = shift;
+  $self->ident_same_user(sub {
+    my($same) = @_;
+    $same ? $self->render_text('ok') : $self->render_not_found;
+  });
+};
 
 my $same_user;
 
