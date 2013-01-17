@@ -3,7 +3,7 @@ NAME
     remote ident service
 
 VERSION
-    version 0.24
+    version 0.25
 
 SYNOPSIS
      use Mojolicious::Lite;
@@ -13,7 +13,6 @@ SYNOPSIS
      under sub {
        shift->ident(sub {
          my $id_res = shift; # $id_res isa Mojolicious::Plugin::Ident::Response
-                             #      isa AnyEvent::Ident::Response
          if($id_res->is_success) {
            app->log->info("ident user is " . $id_res->username);
          } else {
@@ -28,7 +27,6 @@ SYNOPSIS
      get '/' => sub {
        my $self = shift;
        my $id_res = $self->ident; # $id_res isa Mojolicious::Plugin::Ident::Response
-                                  #      isa AnyEvent::Ident::Response
        $self->render_text("hello " . $id_res->username);
      };
  

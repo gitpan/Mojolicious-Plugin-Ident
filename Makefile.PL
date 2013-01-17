@@ -25,6 +25,7 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "Mojolicious::Plugin::Ident",
   "PREREQ_PM" => {
+    "AE" => 0,
     "AnyEvent" => 0,
     "AnyEvent::Ident" => "0.02",
     "AnyEvent::Ident::Client" => 0,
@@ -33,7 +34,7 @@ my %WriteMakefileArgs = (
     "Mojo::Exception" => 0,
     "base" => 0
   },
-  "VERSION" => "0.24",
+  "VERSION" => "0.25",
   "test" => {
     "TESTS" => "t/*.t"
   }

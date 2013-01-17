@@ -20,6 +20,7 @@ no_index:
   directory:
     - example
 requires:
+  AE: 0
   AnyEvent: 0
   AnyEvent::Ident: 0.02
   AnyEvent::Ident::Client: 0
@@ -32,4 +33,4 @@ resources:
   bugtracker: https://github.com/plicease/Mojolicious-Plugin-Ident/issues
   homepage: http://search.cpan.org/dist/Mojolicious-Plugin-Ident/
   repository: git://github.com/plicease/Mojolicious-Plugin-Ident.git
-version: 0.24
+version: 0.25

@@ -10,7 +10,7 @@ use Mojo::Exception;
 use Mojolicious::Plugin::Ident::Response;
 
 # ABSTRACT: Mojolicious plugin to interact with a remote ident service
-our $VERSION = '0.24'; # VERSION
+our $VERSION = '0.25'; # VERSION
 
 
 sub register
@@ -22,10 +22,6 @@ sub register
   my $default_timeout = $conf->{timeout} // 2;
   my $port = $conf->{port} // 113;
 
-  my $ident = AnyEvent::Ident::Client->new(
-    response_class => 'Mojolicious::Plugin::Ident::Response',
-  );
-  
   $app->helper(ident => sub {
     my $callback;
     $callback = pop if ref($_[-1]) eq 'CODE';
@@ -133,7 +129,7 @@ Mojolicious::Plugin::Ident - Mojolicious plugin to interact with a remote ident 
 
 =head1 VERSION
 
-version 0.24
+version 0.25
 
 =head1 SYNOPSIS
 
@@ -144,7 +140,6 @@ version 0.24
  under sub {
    shift->ident(sub {
      my $id_res = shift; # $id_res isa Mojolicious::Plugin::Ident::Response
-                         #      isa AnyEvent::Ident::Response
      if($id_res->is_success) {
        app->log->info("ident user is " . $id_res->username);
      } else {
@@ -159,7 +154,6 @@ version 0.24
  get '/' => sub {
    my $self = shift;
    my $id_res = $self->ident; # $id_res isa Mojolicious::Plugin::Ident::Response
-                              #      isa AnyEvent::Ident::Response
    $self->render_text("hello " . $id_res->username);
  };
  
