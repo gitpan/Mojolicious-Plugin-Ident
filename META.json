@@ -27,14 +27,18 @@
       "runtime" : {
          "requires" : {
             "AnyEvent" : "0",
-            "AnyEvent::Ident" : "0",
+            "AnyEvent::Ident" : "0.02",
+            "AnyEvent::Ident::Client" : "0",
+            "AnyEvent::Ident::Response" : "0",
             "Mojo::Base" : "0",
             "Mojo::Exception" : "0",
+            "base" : "0",
             "perl" : "v5.10.0"
          }
       },
       "test" : {
          "requires" : {
+            "AnyEvent::Ident" : "0",
             "Mojolicious::Lite" : "0",
             "Test::Mojo" : "0",
             "Test::More" : "0"
@@ -53,6 +57,6 @@
          "web" : "https://github.com/plicease/Mojolicious-Plugin-Ident"
       }
    },
-   "version" : "0.22"
+   "version" : "0.23"
 }
 

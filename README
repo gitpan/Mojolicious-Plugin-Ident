@@ -3,7 +3,7 @@ NAME
     remote ident service
 
 VERSION
-    version 0.22
+    version 0.23
 
 SYNOPSIS
      use Mojolicious::Lite;
@@ -12,9 +12,10 @@ SYNOPSIS
      # log the ident user for every connection (async ident)
      under sub {
        shift->ident(sub {
-         my $res = shift; # $res isa AnyEvent::Ident::Response
-         if($res->is_success) {
-           app->log->info("ident user is " . $res->username);
+         my $id_res = shift; # $id_res isa Mojolicious::Plugin::Ident::Response
+                             #      isa AnyEvent::Ident::Response
+         if($id_res->is_success) {
+           app->log->info("ident user is " . $id_res->username);
          } else {
            app->log->info("unable to ident remote user");
          }
@@ -26,8 +27,9 @@ SYNOPSIS
      # get the username of the remote using ident protocol
      get '/' => sub {
        my $self = shift;
-       my $res = $self->ident; # $res isa Mojolicious::Plugin::Ident::Response
-       $self->render_text("hello " . $res->username);
+       my $id_res = $self->ident; # $id_res isa Mojolicious::Plugin::Ident::Response
+                                  #      isa AnyEvent::Ident::Response
+       $self->render_text("hello " . $id_res->username);
      };
  
      # only allow access to the user on localhost which 
@@ -48,7 +50,7 @@ DESCRIPTION
     authenticate users, it is not recommended for untrusted networks and
     systems (see CAVEATS below).
 
-    Under the covers this plugin uses Net::Ident.
+    Under the covers this plugin uses AnyEvent::Ident.
 
 OPTIONS
   timeout
@@ -77,7 +79,7 @@ HELPERS
      get '/' => sub {
        my $self = shift;
        $self->ident(sub {
-         my $res = shift;
+         my $res = shift->res;
          if($res->is_success)
          {
            $self->render_text(
@@ -94,10 +96,10 @@ HELPERS
        };
      };
 
-    The callback is passed an instance of AnyEvent::Ident::Response. Even if
-    the response is an error. The "is_success" method on
-    AnyEvent::Ident::Response will tell you if the response is an error or
-    not.
+    The callback is passed an instance of
+    Mojolicious::Plugin::Ident::Response. Even if the response is an error.
+    The "is_success" method on Mojolicious::Plugin::Ident::Response will
+    tell you if the response is an error or not.
 
     Without a callback (blocking):
 

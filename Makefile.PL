@@ -12,6 +12,7 @@ my %WriteMakefileArgs = (
   "ABSTRACT" => "Mojolicious plugin to interact with a remote ident service",
   "AUTHOR" => "Graham Ollis <plicease\@cpan.org>",
   "BUILD_REQUIRES" => {
+    "AnyEvent::Ident" => 0,
     "Mojolicious::Lite" => 0,
     "Test::Mojo" => 0,
     "Test::More" => 0
@@ -25,11 +26,14 @@ my %WriteMakefileArgs = (
   "NAME" => "Mojolicious::Plugin::Ident",
   "PREREQ_PM" => {
     "AnyEvent" => 0,
-    "AnyEvent::Ident" => 0,
+    "AnyEvent::Ident" => "0.02",
+    "AnyEvent::Ident::Client" => 0,
+    "AnyEvent::Ident::Response" => 0,
     "Mojo::Base" => 0,
-    "Mojo::Exception" => 0
+    "Mojo::Exception" => 0,
+    "base" => 0
   },
-  "VERSION" => "0.22",
+  "VERSION" => "0.23",
   "test" => {
     "TESTS" => "t/*.t"
   }
