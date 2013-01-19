@@ -10,7 +10,7 @@ use Mojo::Exception;
 use Mojolicious::Plugin::Ident::Response;
 
 # ABSTRACT: Mojolicious plugin to interact with a remote ident service
-our $VERSION = '0.25'; # VERSION
+our $VERSION = '0.26'; # VERSION
 
 
 sub register
@@ -129,7 +129,7 @@ Mojolicious::Plugin::Ident - Mojolicious plugin to interact with a remote ident 
 
 =head1 VERSION
 
-version 0.25
+version 0.26
 
 =head1 SYNOPSIS
 
@@ -314,6 +314,14 @@ server is not a secure authentication mechanism.  Most modern operating
 systems do not enable the ident service by default, so unless you have
 control both the client and the server and can configure the ident
 service securely on both, its usefulness is reduced.
+
+Using this module in the non-blocking mode requires that L<AnyEvent> use 
+its L<EV> implementation, which is also used by L<Mojolicious>, if it is 
+loaded.  This shouldn't be a problem, as L<EV> is a prerequisite to this 
+module (though it does not use it directly), and both L<AnyEvent> and 
+L<Mojolicious> will prefer to use L<EV> if it is installed.  You do have 
+to make sure that you do not force another event loop, such as 
+L<AnyEvent::Loop>, unless you are using only the blocking mode.
 
 =head1 AUTHOR
 

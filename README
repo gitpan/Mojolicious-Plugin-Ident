@@ -3,7 +3,7 @@ NAME
     remote ident service
 
 VERSION
-    version 0.25
+    version 0.26
 
 SYNOPSIS
      use Mojolicious::Lite;
@@ -177,6 +177,14 @@ CAVEATS
     systems do not enable the ident service by default, so unless you have
     control both the client and the server and can configure the ident
     service securely on both, its usefulness is reduced.
+
+    Using this module in the non-blocking mode requires that AnyEvent use
+    its EV implementation, which is also used by Mojolicious, if it is
+    loaded. This shouldn't be a problem, as EV is a prerequisite to this
+    module (though it does not use it directly), and both AnyEvent and
+    Mojolicious will prefer to use EV if it is installed. You do have to
+    make sure that you do not force another event loop, such as
+    AnyEvent::Loop, unless you are using only the blocking mode.
 
 AUTHOR
     Graham Ollis <plicease@cpan.org>

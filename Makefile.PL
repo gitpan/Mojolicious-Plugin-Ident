@@ -25,16 +25,16 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "Mojolicious::Plugin::Ident",
   "PREREQ_PM" => {
-    "AE" => 0,
     "AnyEvent" => 0,
     "AnyEvent::Ident" => "0.02",
     "AnyEvent::Ident::Client" => 0,
     "AnyEvent::Ident::Response" => 0,
+    "EV" => 0,
     "Mojo::Base" => 0,
     "Mojo::Exception" => 0,
     "base" => 0
   },
-  "VERSION" => "0.25",
+  "VERSION" => "0.26",
   "test" => {
     "TESTS" => "t/*.t"
   }

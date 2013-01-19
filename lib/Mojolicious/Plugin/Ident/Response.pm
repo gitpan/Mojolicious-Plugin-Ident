@@ -5,7 +5,7 @@ use warnings;
 use base qw( AnyEvent::Ident::Response );
 
 # ABSTRACT: Ident response object
-our $VERSION = '0.25'; # VERSION
+our $VERSION = '0.26'; # VERSION
 
 
 my $server_user_uid;
@@ -52,7 +52,7 @@ Mojolicious::Plugin::Ident::Response - Ident response object
 
 =head1 VERSION
 
-version 0.25
+version 0.26
 
 =head1 DESCRIPTION
 
