@@ -4,7 +4,7 @@
       "Graham Ollis <plicease@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300028, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Dist::Zilla version 4.300029, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -27,7 +27,7 @@
       "runtime" : {
          "requires" : {
             "AnyEvent" : "0",
-            "AnyEvent::Ident" : "0.02",
+            "AnyEvent::Ident" : "0.04",
             "AnyEvent::Ident::Client" : "0",
             "AnyEvent::Ident::Response" : "0",
             "EV" : "0",
@@ -58,6 +58,6 @@
          "web" : "https://github.com/plicease/Mojolicious-Plugin-Ident"
       }
    },
-   "version" : "0.26"
+   "version" : "0.27"
 }
 

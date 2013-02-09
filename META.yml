@@ -10,7 +10,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300028, CPAN::Meta::Converter version 2.120921'
+generated_by: 'Dist::Zilla version 4.300029, CPAN::Meta::Converter version 2.120921'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -21,7 +21,7 @@ no_index:
     - example
 requires:
   AnyEvent: 0
-  AnyEvent::Ident: 0.02
+  AnyEvent::Ident: 0.04
   AnyEvent::Ident::Client: 0
   AnyEvent::Ident::Response: 0
   EV: 0
@@ -33,4 +33,4 @@ resources:
   bugtracker: https://github.com/plicease/Mojolicious-Plugin-Ident/issues
   homepage: http://search.cpan.org/dist/Mojolicious-Plugin-Ident/
   repository: git://github.com/plicease/Mojolicious-Plugin-Ident.git
-version: 0.26
+version: 0.27

@@ -5,7 +5,7 @@ use warnings;
 use base qw( AnyEvent::Ident::Response );
 
 # ABSTRACT: Ident response object
-our $VERSION = '0.26'; # VERSION
+our $VERSION = '0.27'; # VERSION
 
 
 my $server_user_uid;
@@ -42,8 +42,8 @@ sub same_user
 
 1;
 
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -52,7 +52,7 @@ Mojolicious::Plugin::Ident::Response - Ident response object
 
 =head1 VERSION
 
-version 0.26
+version 0.27
 
 =head1 DESCRIPTION
 
@@ -113,4 +113,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

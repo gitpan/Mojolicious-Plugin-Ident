@@ -26,7 +26,7 @@ my %WriteMakefileArgs = (
   "NAME" => "Mojolicious::Plugin::Ident",
   "PREREQ_PM" => {
     "AnyEvent" => 0,
-    "AnyEvent::Ident" => "0.02",
+    "AnyEvent::Ident" => "0.04",
     "AnyEvent::Ident::Client" => 0,
     "AnyEvent::Ident::Response" => 0,
     "EV" => 0,
@@ -34,7 +34,7 @@ my %WriteMakefileArgs = (
     "Mojo::Exception" => 0,
     "base" => 0
   },
-  "VERSION" => "0.26",
+  "VERSION" => "0.27",
   "test" => {
     "TESTS" => "t/*.t"
   }
