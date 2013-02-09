@@ -2,10 +2,11 @@ package Mojolicious::Plugin::Ident::Response;
 
 use strict;
 use warnings;
-use base qw( AnyEvent::Ident::Response );
+use AnyEvent::Ident::Response;
+our @ISA = qw( AnyEvent::Ident::Response );
 
 # ABSTRACT: Ident response object
-our $VERSION = '0.27'; # VERSION
+our $VERSION = '0.28'; # VERSION
 
 
 my $server_user_uid;
@@ -52,7 +53,7 @@ Mojolicious::Plugin::Ident::Response - Ident response object
 
 =head1 VERSION
 
-version 0.27
+version 0.28
 
 =head1 DESCRIPTION
 

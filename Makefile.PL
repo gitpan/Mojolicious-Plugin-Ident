@@ -31,10 +31,9 @@ my %WriteMakefileArgs = (
     "AnyEvent::Ident::Response" => 0,
     "EV" => 0,
     "Mojo::Base" => 0,
-    "Mojo::Exception" => 0,
-    "base" => 0
+    "Mojo::Exception" => 0
   },
-  "VERSION" => "0.27",
+  "VERSION" => "0.28",
   "test" => {
     "TESTS" => "t/*.t"
   }
