@@ -10,7 +10,7 @@ use Mojo::Exception;
 use Mojolicious::Plugin::Ident::Response;
 
 # ABSTRACT: Mojolicious plugin to interact with a remote ident service
-our $VERSION = '0.28'; # VERSION
+our $VERSION = '0.29'; # VERSION
 
 
 sub register
@@ -130,7 +130,7 @@ Mojolicious::Plugin::Ident - Mojolicious plugin to interact with a remote ident 
 
 =head1 VERSION
 
-version 0.28
+version 0.29
 
 =head1 SYNOPSIS
 
@@ -155,7 +155,7 @@ version 0.28
  get '/' => sub {
    my $self = shift;
    my $id_res = $self->ident; # $id_res isa Mojolicious::Plugin::Ident::Response
-   $self->render_text("hello " . $id_res->username);
+   $self->render(text => "hello " . $id_res->username);
  };
  
  # only allow access to the user on localhost which 
@@ -163,7 +163,7 @@ version 0.28
  under sub { shift->ident_same_user };
  
  get '/private' => sub {
-   shift->render_text("secret place");
+   shift->render(text => "secret place");
  };
 
 =head1 DESCRIPTION
@@ -213,14 +213,14 @@ With a callback (non-blocking):
      my $res = shift->res;
      if($res->is_success)
      {
-       $self->render_text(
+       $self->render(text =>
          "username: " . $res->username .
          "os:       " . $res->os
        );
      }
      else
      {
-       $self->render_text(
+       $self->render(text =>
          "error: " . $res->error_type
        );
      }
@@ -236,7 +236,7 @@ Without a callback (blocking):
  get '/' => sub {
    my $self = shift;
    my $ident = $self->ident;
-   $self->render_text(
+   $self->render(text =>
      "username: " . $ident->username .
      "os:       " . $ident->os
    );
@@ -285,7 +285,7 @@ With a callback (non-blocking):
    my $self = shift;
    $self->ident_same_user(sub {
      my $same_user = shift;
-     $same_user ? $self->render_text('private text') : $self->render_not_found;
+     $same_user ? $self->render(text => 'private text') : $self->render_not_found;
    });
  }
 
