@@ -6,7 +6,7 @@ use AnyEvent::Ident::Response;
 our @ISA = qw( AnyEvent::Ident::Response );
 
 # ABSTRACT: Ident response object
-our $VERSION = '0.29'; # VERSION
+our $VERSION = '0.30'; # VERSION
 
 
 my $server_user_uid;
@@ -53,7 +53,7 @@ Mojolicious::Plugin::Ident::Response - Ident response object
 
 =head1 VERSION
 
-version 0.29
+version 0.30
 
 =head1 DESCRIPTION
 
@@ -101,6 +101,8 @@ matches either the server's username or real uid.
 
 L<Mojolicious::Plugin::Ident>,
 L<AnyEvent::Ident::Response>
+
+=cut
 
 =head1 AUTHOR
 

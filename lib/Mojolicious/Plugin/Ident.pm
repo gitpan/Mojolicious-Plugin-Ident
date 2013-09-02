@@ -10,7 +10,7 @@ use Mojo::Exception;
 use Mojolicious::Plugin::Ident::Response;
 
 # ABSTRACT: Mojolicious plugin to interact with a remote ident service
-our $VERSION = '0.29'; # VERSION
+our $VERSION = '0.30'; # VERSION
 
 
 sub register
@@ -87,7 +87,9 @@ sub register
       
       if(defined $controller->session('ident_same_user'))
       {
-        $callback->($controller->session('ident_same_user'));
+        Mojo::IOLoop->timer(0 => sub {
+          $callback->($controller->session('ident_same_user'));
+        });
       }
       else
       {
@@ -130,7 +132,7 @@ Mojolicious::Plugin::Ident - Mojolicious plugin to interact with a remote ident 
 
 =head1 VERSION
 
-version 0.29
+version 0.30
 
 =head1 SYNOPSIS
 
@@ -158,9 +160,42 @@ version 0.29
    $self->render(text => "hello " . $id_res->username);
  };
  
+ # only allow access to the user on localhost which
+ # started the mojolicious lite app with non-blocking
+ # ident call (requires Mojolicious 4.28)
+ under sub {
+   my($self) = @_;
+   $self->ident_same_user(sub {
+     my($same) = @_;
+     unless($same) {
+       return $self->render(
+         text   => 'permission denied',
+         status => 403,
+       );
+     }
+     $self->continue;
+   });
+   return undef;
+ };
+ 
+ get '/private' => sub {
+   shift->render(text => "secret place");
+ };
+ 
  # only allow access to the user on localhost which 
- # started the mojolicious lite app
- under sub { shift->ident_same_user };
+ # started the mojolicious lite app (all versions of
+ # Mojolicious)
+ under sub {
+   my($self) = @_;
+   if($self->ident_same_user) {
+     return 1;
+   } else {
+     $self->render(
+       text   => 'permission denied',
+       status => 403,
+     );
+   }
+ };
  
  get '/private' => sub {
    shift->render(text => "secret place");
@@ -323,6 +358,35 @@ module (though it does not use it directly), and both L<AnyEvent> and
 L<Mojolicious> will prefer to use L<EV> if it is installed.  You do have 
 to make sure that you do not force another event loop, such as 
 L<AnyEvent::Loop>, unless you are using only the blocking mode.
+
+L<Mojolicious> 4.28 introduced support for non-blocking operations in bridges.
+Prior to that if a bridge returned false the server would generate a
+404 "Not Found" reply.  In 4.29 a bridge returning false would not render
+anything and thus timeout if the bridge didn't render anything.  Thus in
+older versions of L<Mojolicious> this:
+
+ under sub { shift->ident_same_user };
+
+would return 404 if the remote and local users are not the same.  To get the
+same behavior in both new and old versions of L<Mojolicious>:
+
+ under sub {
+   my($self) = @_;
+   if($self->ident_same_user) {
+     return 0;
+   } else {
+     $self->render_not_found;
+     return 1;
+   }
+ };
+
+Most of the time you should really return a 403, instead of not found (as in
+the synopsis above), but this is what you would want to do if you wanted a
+resource to be invisible and unavailable rather than just unavailable to the
+wrong user.
+
+I only mention this because old versions of this plugin had documentation
+which included the older form in its synopsis.
 
 =head1 AUTHOR
 

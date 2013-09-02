@@ -1,3 +1,4 @@
+.travis.yml
 Changes
 INSTALL
 LICENSE
@@ -15,6 +16,7 @@ t/basic.t
 t/exception.t
 t/ident_same_user.t
 t/ident_same_user_nb.t
+t/ident_same_user_nb2.t
 t/non_blocking.t
 t/response.t
 t/timeout.t
